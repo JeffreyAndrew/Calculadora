@@ -43,6 +43,7 @@ public class Calculadora extends javax.swing.JFrame {
         jButton24 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btn7.setBackground(new java.awt.Color(51, 51, 51));
         btn7.setFont(new java.awt.Font("Microsoft YaHei UI Light", 1, 24)); // NOI18N
@@ -381,7 +382,17 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        // TODO add your handling code here:
+        if (operador == "=") {
+            
+            txtNumero.setText("");
+            nmrAnter = txtNumero.getText();
+            txtNumero.setText(nmrAnter + "3");
+
+        } else {
+
+            nmrAnter = txtNumero.getText();
+            txtNumero.setText(nmrAnter + "3");
+        }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
@@ -407,7 +418,17 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        // TODO add your handling code here:
+        if (operador == "=") {
+            
+            txtNumero.setText("");
+            nmrAnter = txtNumero.getText();
+            txtNumero.setText(nmrAnter + "1");
+
+        } else {
+
+            nmrAnter = txtNumero.getText();
+            txtNumero.setText(nmrAnter + "1");
+        }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
@@ -435,7 +456,21 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPorActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
-        // TODO add your handling code here:
+        try{
+        valor2=Double.parseDouble(txtNumero.getText());
+        switch (operador) {
+            case "+":  resultado= valor1+valor2; break;
+            case "-":  resultado= valor1-valor2; break;
+            case "*":  resultado= valor1*valor2; break;
+            case "/":  resultado= valor1/valor2; break;
+        }
+        
+        txtNumero.setText(String.valueOf(resultado));
+        operador="=";
+        }
+        catch (Exception e)        {
+            txtNumero.setText("No ha realizado ninguna operación");
+                    }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
