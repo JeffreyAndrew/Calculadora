@@ -477,7 +477,9 @@ public class Calculadora extends javax.swing.JFrame {
             }
 
             txtNumero.setText(String.valueOf(resultado));
-            operador = "=";
+            operador = "";
+            valor1=0;
+            valor2=0;
         } catch (Exception e) {
             txtNumero.setText("No ha realizado ninguna operación");
         }
