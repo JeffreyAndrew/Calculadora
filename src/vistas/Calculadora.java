@@ -9,7 +9,7 @@ public class Calculadora extends javax.swing.JFrame {
     private double resultado = 0.0;
     private String operador = "";
     private String nmrAnter = "";
-    
+
     public Calculadora() {
         initComponents();
         this.getContentPane().setBackground(Color.black);
@@ -383,7 +383,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         if (operador == "=") {
-            
+
             txtNumero.setText("");
             nmrAnter = txtNumero.getText();
             txtNumero.setText(nmrAnter + "3");
@@ -397,7 +397,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         if (operador == "=") {
-            
+
             txtNumero.setText("");
             nmrAnter = txtNumero.getText();
             txtNumero.setText(nmrAnter + "6");
@@ -410,7 +410,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-       
+
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
@@ -419,7 +419,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         if (operador == "=") {
-            
+
             txtNumero.setText("");
             nmrAnter = txtNumero.getText();
             txtNumero.setText(nmrAnter + "1");
@@ -444,7 +444,10 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
-        // TODO add your handling code here:
+        operador = "+";
+        valor1 = valor1 + Double.parseDouble(txtNumero.getText());
+        txtNumero.setText("");
+        
     }//GEN-LAST:event_btnMasActionPerformed
 
     private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
@@ -456,21 +459,28 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPorActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
-        try{
-        valor2=Double.parseDouble(txtNumero.getText());
-        switch (operador) {
-            case "+":  resultado= valor1+valor2; break;
-            case "-":  resultado= valor1-valor2; break;
-            case "*":  resultado= valor1*valor2; break;
-            case "/":  resultado= valor1/valor2; break;
-        }
-        
-        txtNumero.setText(String.valueOf(resultado));
-        operador="=";
-        }
-        catch (Exception e)        {
+        try {
+            valor2 = Double.parseDouble(txtNumero.getText());
+            switch (operador) {
+                case "+":
+                    resultado = valor1 + valor2;
+                    break;
+                case "-":
+                    resultado = valor1 - valor2;
+                    break;
+                case "*":
+                    resultado = valor1 * valor2;
+                    break;
+                case "/":
+                    resultado = valor1 / valor2;
+                    break;
+            }
+
+            txtNumero.setText(String.valueOf(resultado));
+            operador = "=";
+        } catch (Exception e) {
             txtNumero.setText("No ha realizado ninguna operación");
-                    }
+        }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
